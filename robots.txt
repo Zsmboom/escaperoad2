@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://escaperoad2.xyz/sitemap.xml
+
+# 禁止爬虫访问某些资源
+Disallow: /components/
+Disallow: /admin/
+Disallow: /private/ 
