@@ -1,40 +1,39 @@
-# Escape Road Game Series
+# Escape Road 2 - 刺激的警匪追逐游戏
 
-A collection of exciting driving games where players need to escape from various challenging scenarios.
+🎮 立即开玩：[https://escaperoad2.xyz](https://escaperoad2.xyz)
 
-## Games Included
+## 游戏简介
 
-1. Escape Road - The original thrilling police chase game
-2. Escape Road 2 - The exciting sequel with enhanced graphics and gameplay
-3. Escape Road City 2 - Urban escape challenges in a city environment
-4. Escape Road Halloween - Spooky night-time escape adventures
-5. Escape Road Winter - Snow and ice driving challenges
+Escape Road 2 是一款令人兴奋的驾驶游戏，您将体验惊心动魄的警匪追逐。在游戏中，您需要高速驾驶来躲避警方的追捕，同时要提防警用坦克、吉普车和直升机的围追堵截。游戏采用精美的3D图形和紧张刺激的动作场景，是速度爱好者展示驾驶技巧的完美平台。
 
-## Features
+## 游戏特点
 
-- Stunning 3D graphics
-- Multiple game modes
-- Responsive controls
-- Fullscreen gameplay support
-- Mobile-friendly design
+- 🚗 流畅的驾驶体验
+- 🎯 紧张刺激的追逐场景
+- 🎮 简单直观的操作方式
+- 🌟 精美的3D图形效果
+- 🏆 挑战性的关卡设计
 
-## How to Play
+## 操作说明
 
-- Use A/D or Left/Right arrows to steer
-- Press W or Up Arrow to accelerate
-- Press S or Down Arrow to reverse
-- Avoid obstacles and police vehicles
-- Complete challenges to progress
+- 使用 A/D 或 左/右 方向键控制转向
+- 按 W 或 上方向键加速
+- 按 S 或 下方向键后退
+- 躲避障碍物和警车
+- 不要停滞超过3秒
+- 通过快速转弯和跳跃障碍物来获得积分
 
-## Development
+## 技术栈
 
-This project uses:
 - HTML5
-- CSS3
 - JavaScript
-- Responsive Design
-- Component-based Architecture
+- CSS3
+- 响应式设计
+- SEO优化
 
-## License
+## 许可证
 
-© 2024 Escape Game. All Rights Reserved 
+© 2024 Escape Game. 保留所有权利。
+
+---
+🎮 开始游戏：[https://escaperoad2.xyz](https://escaperoad2.xyz) 
