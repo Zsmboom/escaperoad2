@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Road Winter - Escape Game</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导入通用头部 -->
+    <div id="header"></div>
+    <h2 class="game-title">Escape Road Winter</h2>
+
+    <main>
+        <section class="game-container">
+            <div class="game__iframe" id="gameContainer">
+                <iframe id="iframehtml5" width="1280" height="720" title="Escape Road Winter" src="https://azgames.io/escape-road-winter.embed" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
+                <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                    </svg>
+                    Fullscreen
+                </button>
+            </div>
+        </section>
+
+        <section class="game-instructions">
+            <h2>Game Instructions</h2>
+            <div class="instructions-content">
+                <h3>About Escape Road Winter</h3>
+                <p>Escape Road Winter - Immerse yourself in the cold winter air, explore the snow-covered landscapes. Solve challenges to find a way out of the city covered in ice and snow. Experience the unique challenge of winter driving as you navigate through this frosty adventure.</p>
+                
+                <h3>How to Play</h3>
+                <ul>
+                    <li>Use A/D or Left/Right arrows to steer</li>
+                    <li>Press W or Up Arrow to accelerate</li>
+                    <li>Press S or Down Arrow to reverse</li>
+                    <li>Drive carefully on slippery ice roads</li>
+                    <li>Navigate through snow-covered paths</li>
+                    <li>Master winter driving conditions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 导入通用游戏列表 -->
+        <div id="more-games"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escape Game. All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // 加载通用组件
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+
+        fetch('components/more-games.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('more-games').innerHTML = data;
+            });
+
+        // 全屏功能
+        function toggleFullscreen() {
+            const container = document.getElementById('gameContainer');
+            if (!document.fullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                container.classList.add('fullscreen');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                container.classList.remove('fullscreen');
+            }
+        }
+
+        // 监听全屏变化
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            const container = document.getElementById('gameContainer');
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && 
+                !document.mozFullScreenElement && !document.msFullscreenElement) {
+                container.classList.remove('fullscreen');
+            }
+        }
+    </script>
+</body>
+</html> 

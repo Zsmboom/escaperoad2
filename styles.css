@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.site-branding {
+    background-color: #1a252f;
+    padding: 1rem 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid #3498db;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.site-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.site-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-title:hover {
+    color: #2980b9;
+}
+
+.game-title {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0;
+    padding: 1rem 0;
+    background-color: #2c3e50;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    height: 650px;
+}
+
+.game-instructions {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-instructions h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.instructions-content h3 {
+    color: #34495e;
+    margin: 1rem 0;
+}
+
+.instructions-content ul {
+    list-style-position: inside;
+    margin-left: 1rem;
+}
+
+.more-games {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.more-games h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.game-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card h3 {
+    padding: 1rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.game-card h3 a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.game-card h3 a:hover {
+    color: #3498db;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.game__iframe {
+    width: 1280px;
+    height: 610px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.game__iframe iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.fullscreen-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    z-index: 1000;
+}
+
+.fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.fullscreen-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.game__iframe.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: black;
+}
+
+.game__iframe.fullscreen iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.placeholder-message {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        height: auto;
+        padding: 10px;
+    }
+
+    .game__iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .game__iframe iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        height: auto;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+} 
