@@ -7,25 +7,12 @@
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
-# 站点地图特殊处理
+# 站点地图处理
 <Files "sitemap.xml">
-    Header set Content-Type "application/xml; charset=utf-8"
-    Header unset X-Content-Type-Options
-    Header unset Content-Security-Policy
-    Header unset X-Frame-Options
-    Header unset X-XSS-Protection
-    SetOutputFilter NONE
-    SetEnvIfNoCase Request_URI "sitemap\.xml$" no-gzip dont-vary
-</Files>
-
-# XML文件特殊处理
-<FilesMatch "\.xml$">
-    Header set Content-Type "application/xml; charset=utf-8"
-    Header unset X-Content-Type-Options
+    Header set Content-Type "text/xml; charset=utf-8"
     Header unset Content-Encoding
     SetOutputFilter NONE
-    SetEnvIfNoCase Request_URI "\.xml$" no-gzip dont-vary
-</FilesMatch>
+</Files>
 
 # 设置浏览器缓存
 <IfModule mod_expires.c>
