@@ -7,22 +7,20 @@
     <xsl:template match="/">
         <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
-                <title>XML Sitemap - Escape Road 2</title>
+                <title>XML Sitemap</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <style type="text/css">
                     body {
                         font-family: Arial, sans-serif;
                         font-size: 13px;
-                        color: #333;
+                        color: #545353;
                     }
                     table {
                         border: none;
                         border-collapse: collapse;
-                        width: 100%;
-                        margin: 20px 0;
                     }
                     #sitemap tr:nth-child(odd) td {
-                        background-color: #f8f8f8;
+                        background-color: #f8f8f8 !important;
                     }
                     #sitemap tbody tr:hover td {
                         background-color: #fff;
@@ -30,17 +28,9 @@
                     #sitemap tbody tr:hover td, #sitemap tbody tr:hover td a {
                         color: #000;
                     }
-                    #content {
-                        margin: 0 auto;
-                        width: 1000px;
-                    }
                     .expl {
                         margin: 18px 3px;
                         line-height: 1.2em;
-                    }
-                    .expl a {
-                        color: #da3114;
-                        font-weight: bold;
                     }
                     a {
                         color: #000;
@@ -51,19 +41,6 @@
                     }
                     a:hover {
                         text-decoration: underline;
-                    }
-                    td {
-                        font-size:11px;
-                        padding: 5px;
-                    }
-                    th {
-                        text-align:left;
-                        padding: 5px;
-                        font-size:11px;
-                        background-color: #f8f8f8;
-                    }
-                    thead th {
-                        border-bottom: 1px solid #ccc;
                     }
                 </style>
             </head>
@@ -80,8 +57,7 @@
                             <thead>
                                 <tr>
                                     <th width="75%">URL</th>
-                                    <th width="5%">Priority</th>
-                                    <th width="5%">Change Freq.</th>
+                                    <th width="10%">Priority</th>
                                     <th width="15%">Last Change</th>
                                 </tr>
                             </thead>
@@ -98,9 +74,6 @@
                                         </td>
                                         <td>
                                             <xsl:value-of select="sitemap:priority"/>
-                                        </td>
-                                        <td>
-                                            <xsl:value-of select="sitemap:changefreq"/>
                                         </td>
                                         <td>
                                             <xsl:value-of select="sitemap:lastmod"/>

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+
+# XML Sitemap
 Sitemap: https://escaperoad2.xyz/sitemap.xml
 
 # 禁止爬虫访问某些资源
