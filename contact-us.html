@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M14MG7LLK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M14MG7LLK8');
+    </script>
+    <title>Contact Us - Escape Road Games | Get in Touch</title>
+    <meta name="description" content="Contact Escape Road Games for support, feedback, or business inquiries. We're here to help and would love to hear from you!">
+    <meta name="keywords" content="contact escape road games, game support, feedback, business inquiries">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导入通用头部 -->
+    <div id="header"></div>
+
+    <main class="content-page">
+        <h1>Contact Us</h1>
+        
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <p>We'd love to hear from you! Whether you have questions, feedback, or business inquiries, please don't hesitate to reach out.</p>
+        </section>
+
+        <section class="contact-section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:contact@escaperoad2.xyz">contact@escaperoad2.xyz</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Social Media</h3>
+                    <div class="social-links">
+                        <a href="https://twitter.com/escaperoadgames" target="_blank" rel="noopener">Twitter</a>
+                        <a href="https://facebook.com/escaperoadgames" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://linkedin.com/company/escaperoadgames" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Contact Form</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+
+        <section class="contact-section">
+            <h2>Support Hours</h2>
+            <p>Our support team is available Monday through Friday, 9:00 AM to 5:00 PM (GMT). We strive to respond to all inquiries within 24 hours.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escape Game. All Rights Reserved | <a href="/about-us.html">About Us</a> | <a href="/contact-us.html">Contact Us</a> | <a href="/privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // 加载通用组件
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+
+        // 处理表单提交
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

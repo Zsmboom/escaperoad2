@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M14MG7LLK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M14MG7LLK8');
+    </script>
+    <title>About Us - Escape Road Games | Your Ultimate Gaming Destination</title>
+    <meta name="description" content="Learn about Escape Road Games, our mission to provide the best online gaming experience, and our commitment to creating exciting and engaging car chase games.">
+    <meta name="keywords" content="escape road games, about us, gaming company, car chase games, online games">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导入通用头部 -->
+    <div id="header"></div>
+
+    <main class="content-page">
+        <h1>About Us</h1>
+        
+        <section class="about-section">
+            <h2>Our Story</h2>
+            <p>Welcome to Escape Road Games, where passion for gaming meets innovation in game design. Since our inception, we've been dedicated to creating thrilling and engaging car chase games that challenge players while providing hours of entertainment.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>Our mission is to deliver high-quality, accessible gaming experiences to players worldwide. We believe in creating games that are not only fun to play but also help develop skills like quick thinking, strategic planning, and hand-eye coordination.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Vision</h2>
+            <p>We envision a future where gaming brings people together, transcending geographical boundaries and cultural differences. Our goal is to continue innovating in the gaming space, creating experiences that challenge, entertain, and inspire.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Values</h2>
+            <ul>
+                <li><strong>Quality:</strong> We are committed to delivering high-quality games that meet the highest standards of gameplay and user experience.</li>
+                <li><strong>Innovation:</strong> We constantly push boundaries to create unique and engaging gaming experiences.</li>
+                <li><strong>Community:</strong> We value our player community and actively seek their feedback to improve our games.</li>
+                <li><strong>Accessibility:</strong> We believe gaming should be accessible to everyone, which is why our games are free to play and optimized for various devices.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Join Us on Our Journey</h2>
+            <p>Whether you're a casual gamer or a dedicated enthusiast, we invite you to join us on our journey. Try our games, share your feedback, and be part of our growing community of players who share our passion for exciting car chase adventures.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escape Game. All Rights Reserved | <a href="/about-us.html">About Us</a> | <a href="/contact-us.html">Contact Us</a> | <a href="/privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // 加载通用组件
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

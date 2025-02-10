@@ -68,6 +68,9 @@
             </div>
         </section>
 
+        <!-- 添加社交分享组件 -->
+        <div id="social-share"></div>
+
         <section class="game-instructions" aria-label="Game Instructions">
             <h2>Game Instructions</h2>
             <div class="instructions-content">
@@ -90,9 +93,7 @@
         <div id="more-games" aria-label="More Games"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Escape Game. All Rights Reserved | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Use</a></p>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // 加载通用组件
@@ -102,11 +103,75 @@
                 document.getElementById('header').innerHTML = data;
             });
 
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
         fetch('components/more-games.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('more-games').innerHTML = data;
             });
+
+        // 加载社交分享组件
+        fetch('components/social-share.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('social-share').innerHTML = data;
+                initializeSocialShare(); // 初始化分享功能
+            });
+
+        // 分享功能
+        function getShareData() {
+            const title = document.title;
+            const url = window.location.href;
+            const description = document.querySelector('meta[name="description"]')?.content || '';
+            return { title, url, description };
+        }
+
+        function shareOnTwitter() {
+            const { title, url } = getShareData();
+            const shareText = encodeURIComponent(`${title}\n`);
+            const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnFacebook() {
+            const { url } = getShareData();
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnLinkedIn() {
+            const { title, url, description } = getShareData();
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function initializeSocialShare() {
+            document.querySelectorAll('[data-share]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const platform = button.getAttribute('data-share');
+                    switch(platform) {
+                        case 'twitter':
+                            shareOnTwitter();
+                            break;
+                        case 'facebook':
+                            shareOnFacebook();
+                            break;
+                        case 'linkedin':
+                            shareOnLinkedIn();
+                            break;
+                    }
+                });
+            });
+        }
 
         // 全屏功能
         function toggleFullscreen() {

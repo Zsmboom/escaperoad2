@@ -3,7 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Road Halloween - Escape Game</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M14MG7LLK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M14MG7LLK8');
+    </script>
+    <title>Escape Road Halloween - Spooky Night Chase Game | Play Free Online</title>
+    <meta name="description" content="Play Escape Road Halloween, a thrilling night-time chase game with spooky Halloween theme! Experience intense police pursuits in a haunted city setting with stunning graphics and challenging gameplay.">
+    <meta name="keywords" content="escape road halloween, halloween driving game, night chase game, spooky car game, halloween games online">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Escape Road Halloween - Spooky Night Chase Game">
+    <meta property="og:description" content="Experience the thrill of escape in a haunted city! Drive through spooky streets while avoiding police in this Halloween-themed driving adventure.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Escape-Road-Halloween.jpg">
+    <link rel="canonical" href="https://escaperoad2.xyz/escape-road-halloween.html">
+    <meta property="og:url" content="https://escaperoad2.xyz/escape-road-halloween.html">
+    <meta property="og:site_name" content="Escape Road 2">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Escape Road Halloween",
+      "description": "A Halloween-themed driving game featuring night-time police chases in a spooky city setting",
+      "genre": ["Racing Game", "Halloween Game", "Driving Game"],
+      "gamePlatform": "Web Browser",
+      "operatingSystem": "Any",
+      "applicationCategory": "Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,6 +60,9 @@
                 </button>
             </div>
         </section>
+
+        <!-- 添加社交分享组件 -->
+        <div id="social-share"></div>
 
         <section class="game-instructions">
             <h2>Game Instructions</h2>
@@ -47,9 +86,7 @@
         <div id="more-games"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Escape Game. All Rights Reserved</p>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // 加载通用组件
@@ -59,11 +96,75 @@
                 document.getElementById('header').innerHTML = data;
             });
 
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
         fetch('components/more-games.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('more-games').innerHTML = data;
             });
+
+        // 加载社交分享组件
+        fetch('components/social-share.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('social-share').innerHTML = data;
+                initializeSocialShare(); // 初始化分享功能
+            });
+
+        // 分享功能
+        function getShareData() {
+            const title = document.title;
+            const url = window.location.href;
+            const description = document.querySelector('meta[name="description"]')?.content || '';
+            return { title, url, description };
+        }
+
+        function shareOnTwitter() {
+            const { title, url } = getShareData();
+            const shareText = encodeURIComponent(`${title}\n`);
+            const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnFacebook() {
+            const { url } = getShareData();
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnLinkedIn() {
+            const { title, url, description } = getShareData();
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function initializeSocialShare() {
+            document.querySelectorAll('[data-share]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const platform = button.getAttribute('data-share');
+                    switch(platform) {
+                        case 'twitter':
+                            shareOnTwitter();
+                            break;
+                        case 'facebook':
+                            shareOnFacebook();
+                            break;
+                        case 'linkedin':
+                            shareOnLinkedIn();
+                            break;
+                    }
+                });
+            });
+        }
 
         // 全屏功能
         function toggleFullscreen() {

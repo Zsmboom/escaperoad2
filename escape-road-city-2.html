@@ -3,7 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Road City 2 - Escape Game</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M14MG7LLK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M14MG7LLK8');
+    </script>
+    <title>Escape Road City 2 - Urban Chase Adventure Game | Play Free Online</title>
+    <meta name="description" content="Play Escape Road City 2, an exciting urban chase game with challenging city roads and intense police pursuits! Master your driving skills in this thrilling sequel with improved graphics and gameplay.">
+    <meta name="keywords" content="escape road city 2, urban chase game, city driving game, police pursuit game, car escape game">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Escape Road City 2 - Urban Chase Adventure Game">
+    <meta property="og:description" content="Take on new urban challenges in this thrilling sequel! Navigate through busy city streets while avoiding police in this action-packed driving adventure.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Escape-Road-City-2.jpg">
+    <link rel="canonical" href="https://escaperoad2.xyz/escape-road-city-2.html">
+    <meta property="og:url" content="https://escaperoad2.xyz/escape-road-city-2.html">
+    <meta property="og:site_name" content="Escape Road 2">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Escape Road City 2",
+      "description": "An urban driving game featuring intense police chases through city streets with improved graphics and challenging gameplay",
+      "genre": ["Racing Game", "Action Game", "Driving Game"],
+      "gamePlatform": "Web Browser",
+      "operatingSystem": "Any",
+      "applicationCategory": "Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,6 +54,9 @@
                 <iframe id="iframehtml5" width="1280" height="720" title="Escape Road City 2" src="https://game.azgame.io/escape-road-city-2/" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
             </div>
         </section>
+
+        <!-- 添加社交分享组件 -->
+        <div id="social-share"></div>
 
         <section class="game-instructions">
             <h2>Game Instructions</h2>
@@ -41,9 +80,7 @@
         <div id="more-games"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Escape Game. All Rights Reserved</p>
-    </footer>
+    <div id="footer"></div>
 
     <script>
         // 加载通用组件
@@ -53,11 +90,75 @@
                 document.getElementById('header').innerHTML = data;
             });
 
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
         fetch('components/more-games.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('more-games').innerHTML = data;
             });
+
+        // 加载社交分享组件
+        fetch('components/social-share.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('social-share').innerHTML = data;
+                initializeSocialShare(); // 初始化分享功能
+            });
+
+        // 分享功能
+        function getShareData() {
+            const title = document.title;
+            const url = window.location.href;
+            const description = document.querySelector('meta[name="description"]')?.content || '';
+            return { title, url, description };
+        }
+
+        function shareOnTwitter() {
+            const { title, url } = getShareData();
+            const shareText = encodeURIComponent(`${title}\n`);
+            const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnFacebook() {
+            const { url } = getShareData();
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function shareOnLinkedIn() {
+            const { title, url, description } = getShareData();
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=550,height=420');
+            return false;
+        }
+
+        function initializeSocialShare() {
+            document.querySelectorAll('[data-share]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const platform = button.getAttribute('data-share');
+                    switch(platform) {
+                        case 'twitter':
+                            shareOnTwitter();
+                            break;
+                        case 'facebook':
+                            shareOnFacebook();
+                            break;
+                        case 'linkedin':
+                            shareOnLinkedIn();
+                            break;
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html> 
