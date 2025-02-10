@@ -34,10 +34,20 @@ header {
     gap: 1rem;
 }
 
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(to right, rgba(26,35,126,0.05), rgba(26,35,126,0.1), rgba(26,35,126,0.05));
+}
+
 .site-logo {
     width: 40px;
     height: 40px;
-    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.1);
 }
 
 .site-title {
