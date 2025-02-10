@@ -11,6 +11,10 @@
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
+# 设置XML MIME类型
+AddType application/xml .xml
+AddType application/xml .xsl
+
 # 设置浏览器缓存
 <IfModule mod_expires.c>
     ExpiresActive On
