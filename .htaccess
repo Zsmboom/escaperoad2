@@ -15,6 +15,11 @@
 AddType application/xml .xml
 AddType application/xml .xsl
 
+<FilesMatch "\.xml$">
+    Header set Content-Type "text/xml; charset=utf-8"
+    Header unset X-Content-Type-Options
+</FilesMatch>
+
 # 设置浏览器缓存
 <IfModule mod_expires.c>
     ExpiresActive On
