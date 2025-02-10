@@ -10,8 +10,14 @@
 # 站点地图处理
 <Files "sitemap.xml">
     Header set Content-Type "text/xml; charset=utf-8"
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    Header unset ETag
+    Header unset Last-Modified
     Header unset Content-Encoding
     SetOutputFilter NONE
+    FileETag None
 </Files>
 
 # 设置浏览器缓存
