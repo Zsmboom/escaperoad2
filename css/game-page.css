@@ -1,0 +1,42 @@
+.related-games {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.related-games h4 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+.related-games ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.related-games li {
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.related-games li:hover {
+    background-color: #e9ecef;
+}
+
+.related-games a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+}
+
+.related-games a:hover {
+    text-decoration: underline;
+} 
